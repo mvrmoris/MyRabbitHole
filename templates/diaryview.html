@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block navbar %}
+<a style= "border:0px solid white;" href="/profile/{{user_id}}" > <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+{% endblock %}
+
+{% block main %}
+
+
+<div class="dairies" style="left:0px;margin-top:70px;">
+    {% for diary in diaries %}
+    <div class="one" style="background-image: url({{diary.url}});background-size: cover;background-repeat:no-repeat;">
+        <p  style="font-size:1em; background-color:white;opacity:0.7;">{{diary.title}}, <span style="opacity:0.6;">{{diary.timeth}}</span></p>
+        <p  style="font-size:1em; background-color:white;opacity:0.7;"><span style="font-size:0.8em;">{{diary.diary}}</span></p>
+        <hr>
+    </div>
+    {% endfor %}
+  </div>
+{%endblock%}
