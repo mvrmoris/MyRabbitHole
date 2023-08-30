@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block navbar %}
+<a style= "border:0px solid white;" href="/settings" > <i class="fa fa-gear"></i></a>
+{% endblock %}
+
+{% block main %}
+<div class="edit" id = "name" style="top:130px;left:120px; width: 500px; ">
+    <p class="x" onclick="toggle_visibility('name');">X</p>
+    <h3 class="edithead"> edit folder name </h3>
+    <form action="/editfoldername/{{foldername}}" method="post">
+        <input autocomplete="off" autofocus class="inputs" id="name" name="name" placeholder="name" type="text">
+        <button class="button" type="submit">Save</button>
+    </form>
+</div>
+<!--add thought-->
+<div class="edit" id = "thought" style="top:130px;left:120px; width: 500px; ">
+    <p class="x" onclick="toggle_visibility('thought');">X</p>
+    <h3 class="edithead"> add thought </h3>
+    <form action="/addthought/{{foldername}}" method="post">
+                <select name="privacy" class="sign" style="width:300px;">
+                    <option value="public">public</option>
+                    <option value="private">private</option>
+                </select>
+                <textarea id="thought" autofocus class="thought" name="thought" rows="5" cols="20"></textarea>
+        <button class="button" type="submit">Save</button>
+    </form>
+</div>
+<!--add picture-->
+    <div class="edit" id = "picture" style="top:130px;left:120px; width: 500px;">
+        <p class="x" onclick="toggle_visibility('picture');">X</p>
+        <h3 class="edithead"> add picture </h3>
+        <form action="/addpicture/{{foldername}}" method="post">
+                    <select name="privacy" class="sign">
+                        <option value="public">public</option>
+                        <option value="private">private</option>
+                    </select>
+                    <input autocomplete="off" autofocus class="inputs" id="url" name="url" placeholder="url" type="text">
+                    <input autocomplete="off" autofocus class="inputs" id="note" name="note" placeholder="note" type="text">
+
+            <button class="button" type="submit">Save</button>
+        </form>
+    </div>
+    <div class="edit" id = "pinned" style="top:130px;left:120px; width: 400px; ">
+        <p class="x" onclick="toggle_visibility('pinned');">X</p>
+        <h3 class="edithead"> add pinned</h3>
+        <form action="/addpinned/{{foldername}}" method="post">
+                <div class="usernamebt">
+
+                    <input autocomplete="off" autofocus class="inputs" id="title" name="title" placeholder="title" type="text">
+                </div>
+                <div class="usernamebt">
+                    <input autocomplete="off" autofocus class="inputs" id="description" name="description" placeholder="Description" type="text">
+                </div>
+                <div class="usernamebt">
+                    <input autocomplete="off" autofocus class="inputs" id="image_url" name="image_url" placeholder="image url" type="text">
+                </div>
+                <div class="usernamebt">
+                    <input autocomplete="off" autofocus class="inputs" id="link" name="link" placeholder="link" type="text">
+                </div>
+            <button class="btn" type="submit">Save</button>
+        </form>
+    </div>
+<!--add diary-->
+<div class="edit" id = "diary" style="margin-top:20px;left:200px; width: 850px;">
+    <p class="x" onclick="toggle_visibility('diary');">X</p>
+    <h3 class="edithead"> add dairy post </h3>
+    <form action="/adddiary/{{foldername}}" method="post">
+                <select name="privacy" class="sign">
+                    <option value="public">public</option>
+                    <option value="private">private</option>
+                </select>
+                <input autocomplete="off" autofocus class="inputs" id="title" name="title" placeholder="title" type="text">
+                <input autocomplete="off" autofocus class="inputs" id="url" name="url" placeholder="url" type="text">
+                <textarea id="thought" style="margin-top:10px;width:700px;"autofocus class="diary" name="diary" rows="20" cols="20"></textarea>
+
+        <button class="button" type="submit">Save</button>
+    </form>
+  </div>
+    <img src="fishing.jpeg">
+    <h1 class="headfold" onclick="toggle_visibility('name');" style="font-family:quicksand;">{{foldername}} <span style="font-size:0.5em; opacity:0.5;">by {{ user }} </span></h1>
+    <div class="circle" >
+        <p class="plus" onclick="toggle_visibility('conteni');">
+            &#43;
+        </p>
+    </div>
+
+    <div class="contenitore" style="bottom:200px;"id = "conteni">
+        <div class="first">
+            <p onclick="toggle_visibility('thought');">
+                add thought
+            </p>
+        </div>
+        <div class="second">
+            <p onclick ="toggle_visibility('picture');">
+                add picture
+            </p>
+        </div>
+        <div >
+            <p onclick="toggle_visibility('pinned');">
+                pin content
+            </p>
+        </div>
+        <div >
+            <p onclick="toggle_visibility('diary');">
+                add diary post
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="carte" style="width:900px;padding-top:30px;">
+        <div >
+        {% for content in pinned_content %}
+        <div class="card" style="width:15rem; border:1px solid black; display:{{visibility}}; top:0px;">
+            <p  class="set" onclick="toggle_visibility('pinned');" style="position:absolute; top:0px; right:10px;" >
+                <i class="fa fa-gear" style="font-size:0.5em;"></i></p>
+            <p  class="set" style="position:absolute; top:20px; right:10px;" >
+                <a href="/deletepinned/{{content.idpinned}}"><i class="fa fa-trash-o" style="color:black;"></i></a></p>
+            <img src={{ content.picture }} class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 id="entryTime" class="smlparag" style="font-weight:bold;">{{content.title}}</h5>
+                <p class="smlparag">{{content.description}}</p>
+
+                <a href={{content.url}} class="btn btn-primary">{{content.url}}</a>
+                </div>
+        </div>
+        </div>
+            {% endfor %}
+        </div>
+
+        <div style="display:flex; justify-content:flex-start; flex-wrap:wrap; row-gap:10px;">
+            {% for thought in thoughts %}
+            <div >
+                <div style="border-radius:15px;
+                border:1px solid black;
+                text-align:left;
+                padding:10px 10px;
+                margin-left:10px;
+                max-width:300px;
+                margin-bottom:50px;
+                margin-top:50px;
+                " >
+                    <p  class="set" style="position:absolute;" >
+                        <a class="del" href="/deletethought/{{thought.idthought}}" style="color:black;"><i class="fa fa-trash-o" ></i></a></p>
+                    <p  class="smlparag" style="font-size:1em; padding-left:15px;">{{thought.think}}</p>
+                    <p style="font-size:0.5em; background-color:#D5DBDB">{{thought.timeth}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="flexpict">
+            {% for picture in pictures %}
+            <a href="/pictures"> <div class="pictures" style="background-image: url({{picture.url}}); margin-left:10px;background-color:white;
+                position:absolute;
+                width:150px;
+                height:150px;
+                border:1px solid black;
+                border-radius:15px;
+                background-size: cover;
+                background-repeat:no-repeat;
+                margin-top:200px;
+                top:500px">
+        </div></a>
+            {% endfor %}
+        </div>
+            <div class="dairies" style="left:0px;margin-top:200px;">
+                {% for diary in diaries %}
+                <div class="one" style="background-image: url({{diary.url}});background-size:cover;
+                opacity:0.7;
+                background-position:center;">
+                  <a class="del" href="/deldiary/{{diary.iddiary}}" style="color:black;"><i class="fa fa-trash-o" ></i></a></p>
+                    <p  style="font-size:1em; background-color:white;opacity:0.7;">{{diary.title}}, <span style="opacity:0.6;">{{diary.timeth}}</span></p>
+                    <p  style="font-size:1em; background-color:white;opacity:0.7;"><span style="font-size:0.8em;">{{diary.diary}}</span></p>
+
+                    <hr>
+                </div>
+                {% endfor %}
+
+        </div>
+
+
+
+{% endblock %}
