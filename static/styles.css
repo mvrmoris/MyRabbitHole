@@ -1,0 +1,734 @@
+nav{
+  height: 60px;
+  background-color: #000;
+  padding: 0;
+  margin:0 auto;
+  position:absolute;
+  z-index: 30;
+  top:0;
+}
+
+
+ul {
+    width:100%;
+    padding: auto;
+    height: 70px;
+    list-style-type: none;
+    margin-top: auto;
+    padding-top:5px;
+    padding-right:10px;
+    overflow: hidden;
+    display:flex;
+    position:fixed;
+    background-color:white;
+    justify-content:flex-end;
+    transition: background-color 0.2s linear;
+    z-index:4px;
+    border:1px solid black;
+  }
+  body.dark ul{border:1px solid white;}
+
+  .search{
+    border:1px solid black;
+    border-radius:15px;
+    padding:15px 10px;
+    height:50px;
+    margin-top:5px;
+    margin-left:5px;
+  }
+
+  li a {
+    display:  block;
+    color: black;
+    text-align: center;
+    padding: 16px 16px;
+    margin-left:10px;
+    text-decoration: none;
+    font-family:Quicksand;
+    border: 1px solid black;
+    border-radius:15px;
+  }
+
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+    color: white;
+  }
+
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+  * {box-sizing: border-box;}
+html,body{
+  overflow-x:hidden;
+}
+  body {
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height:2200px;
+    margin: 0;
+    transition: background-color 0.2s linear;
+    width:auto;
+    position:relative;
+  }
+
+ body.dark {
+  background-color: black;
+}
+
+  body.dark h1, body.dark li a, body.dark .btn{color: white;}
+  body.dark ul, body.dark .ball{background-color:black;}
+  body.dark .checkbox-label{background-color:white;}
+  body.dark li a, body.dark .btn{border-color:white;}
+  body.dark li a:hover,body.dark .btn:hover {
+    background-color: white;
+    color: black;
+    cursor:pointer;
+  }
+  body.dark .btn {background-color:black;}
+  .checkbox {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .checkbox-label {
+    background-color: black;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding:5px;
+    margin-top:25%;
+    margin-right:25%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s linear;
+  }
+
+  .fa-moon {color: grey;}
+
+  .fa-sun {color: white;}
+  .fa fa-gear{
+    width:200px;
+  }
+  .checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+
+  .checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+  }
+.login{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border:1px solid black;
+  background-color:white;
+  text-align:center;
+  border-radius: 15px;
+  width:400px;
+  padding-top:70px;
+  padding-bottom:70px;
+  margin-top:70px;
+  margin-left:auto;
+  margin-right:auto;
+  transition: background-color 0.2s linear;
+}
+body.dark .login {background-color:black; border:1px solid white;}
+h3{
+  font-family: Quicksand;
+  text-decoration:underline;
+  font-size:2em;
+  color:black;
+  transition: color 0.2s linear;
+}
+body.dark h3,body.dark .smlparag, body.dark .anchor{color:white;}
+
+.smlparag{
+  font-family: Quicksand;
+  font-size:0.8em;
+}
+.warning{
+  font-family: Quicksand;
+  font-size:0.8em;
+  visibility:hidden;
+}
+.paraghead{
+  font-family: Quicksand;
+  font-size:0.8em;
+  font-size:1.5em;
+  text-align:left;
+  font-weight:bold;
+  position:absolute;
+  z-index:10;
+  top:670px;
+  padding-left:60px;
+}
+.inputs{
+
+  padding:12px 20px;
+  box-sizing:border-box;
+  width:auto;
+  margin-top:10px;
+  font-family: Quicksand;
+  border-radius:15px;
+}
+.button{
+
+  padding:12px 20px;
+  margin-top:30px;
+  font-family:Quicksand;
+  background-color:white;
+  border: 1px solid black;
+  border-radius:10px;
+}
+.button:hover{
+  background-color:black;
+  color:white;
+  cursor:pointer;
+}
+@media only screen and (max-width: 600px) {
+  .login{
+    height:600px;
+    width:350px;
+
+  }
+}
+.smlparag1{
+  font-family: Quicksand;
+  font-size:0.8em;
+  color:white;
+}
+.smlparag3{
+  font-family: Quicksand;
+  font-size:0.8em;
+  color:grey;
+}
+.image_dev{
+  position:absolute;
+  height:400px;
+  width:100%;
+  left:0px;
+  top:65px;
+  z-index:1;
+  border:1px solid black;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+
+}
+body.dark .image_dev{
+  border:1px solid white;
+}
+.edit{
+  position:fixed;
+  z-index:15;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border:1px solid black;
+  background-color:white;
+  text-align:center;
+  border-radius: 15px;
+  width:300px;
+  padding-top:30px;
+  padding-bottom:30px;
+  margin-top:200px;
+  margin-left:80px;
+  margin-right:auto;
+  transition: background-color 0.2s linear;
+  visibility:hidden;}
+
+body.dark .edit{
+  background-color:black;
+  border:1px solid white;
+}
+.edithead{
+  font-family: Quicksand;
+  font-size:0.9em;
+  text-decoration:none;
+}
+.set:hover{
+  cursor:pointer;
+}
+.profile_pic{
+  background-color:white;
+  position:absolute;
+  z-index:10;
+  width:200px;
+  height:200px;
+  top:400px;
+  left:50px;
+  border:1px solid black;
+  border-radius:15px;
+  background-size:
+    cover; background-repeat:no-repeat;
+
+}
+body.dark .profile_pic{
+  border: 1px solid white;
+}
+.edit2{
+  position:absolute;
+  z-index:10;
+  width:1000px;
+  height:200px;
+  bottom:170px;
+  left:50px;
+  align-content: center;
+}
+.title{
+  position:absolute;
+  font-family:Quicksand;
+  font-size:2em;
+  text-decoration:none;
+  padding-bottom:20px;
+  bottom:150px;
+
+}
+.container{
+  display:flex;
+  align-items:center;
+  bottom:400px;
+
+}
+.item1{
+  bottom:400px;
+  flex-grow:1;
+  flex-shrink:2;
+  flex-basis:auto;
+}
+.biography{
+  position:absolute;
+  font-family:Quicksand;
+  z-index:12;
+  font-size:1em;
+  top:500px;
+  border-bottom:1px solid black;
+  margin-right:40px;
+  text-align:left;
+}
+body.dark .biography{
+  border-bottom:1px solid white;
+  color:white;
+}
+.sign{
+  padding:12px 20px;
+  box-sizing:border-box;
+  width:150px;
+  height:30px;
+  margin-top:10px;
+  margin-bottom:10px;
+  font-family: Quicksand;
+  border-radius:20px;
+  background-color:white;
+}
+.x{
+  top:0px; font-family:Quicksand;
+  font-size:0.9em;
+}
+.x:hover{
+  cursor:pointer;
+}
+body.dark .x{
+  color:white;
+}
+.title1{
+  border-bottom:1px solid black;
+  z-index:12;
+  position:absolute;
+  font-family:Quicksand;
+  font-size:2em;
+  text-decoration:none;
+  padding-bottom:20px;
+  top:550px;
+  padding-left:190px;
+
+}
+body.dark .title1{
+  border-bottom:1px solid white;
+}
+.plus{
+  position:fixed;
+  font-family:Quicksand;
+  z-index:50;
+  font-size:1em;
+  top:50%;
+  margin-right:40px;
+  display:  block;
+    color: black;
+    text-align: center;
+    padding: 16px 16px;
+    margin-left:10px;
+    text-decoration: none;
+    font-family:Quicksand;
+    border: 1px solid black;
+    border-radius:15px;
+  background-color:white
+}
+.plus:hover{
+  background-color:black;
+  color:white;
+  cursor:pointer;
+}
+.contenitore{
+  display:flex;
+  flex-direction:column;
+  position:fixed;
+  bottom:100px;
+  z-index:50;
+  left:60px;
+  align-items:flex-start;
+  visibility:hidden;
+
+}
+
+.contenitore div p{
+  background-color:white;
+  display:  block;
+  color: black;
+  text-align: center;
+  padding: 10px 10px;
+  margin-left:10px;
+  text-decoration: none;
+  font-family:Quicksand;
+  border: 1px solid black;
+  border-radius:15px;
+  font-size:0.7em;
+
+}
+
+.contenitore div p:hover{
+  background-color:black;
+  font-size:0.9em;
+  color:white;
+  cursor:pointer;
+}
+.carte{
+  padding-left:10px;
+  padding-top:500px;
+  display:flex;
+}
+.card{
+  position:absolute;
+  z-index:12;
+  border:1px solid black;
+}
+@media only screen and (max-width: 600px) {
+
+  .profile_pic{
+    top:200px;
+    width:100px;
+    height:100px;
+    background-size:
+    cover; background-repeat:no-repeat;
+  }
+  .image_dev{
+    top:40px;
+    height:200px;
+  }
+  ul{
+    height:50px;
+  }
+  li a {
+    display:  block;
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+    margin-left:10px;
+
+    font-size:0.8em;
+
+    border-radius:15px;
+  }
+  .checkbox-label {
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding:5px;
+    margin:auto;
+    margin-right:25%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.title1{
+  border-bottom:0px;
+  z-index:12;
+  position:absolute;
+  font-family:Quicksand;
+  font-size:1em;
+  text-decoration:none;
+  padding-bottom:20px;
+  top:270px;
+  padding-left:130px;
+}
+.fa fa-gear{
+  bottom:40px;
+}
+.biography{
+  position:absolute;
+  font-family:Quicksand;
+  z-index:12;
+  font-size:0.8em;
+  top:500px;
+  border-bottom:1px solid black;
+  text-align:left;
+  width:400px;
+  padding-left:40px;
+  padding-right:40px;
+  left:0px;
+  top:340px;
+}
+.container{
+  display:flex;
+  align-items:center;
+  bottom:400px;
+  flex-wrap:wrap;
+}
+
+.fa fa-trash:hover{
+  cursor:pointer;
+}
+.thought{
+  border-radius:15px;
+  border:1px solid black;
+  text-align:left;
+  width:450px;
+  left:500px;
+  background-color:white;
+  font-family:Quicksand;
+}
+body.dark .thought{
+  background-color:black;
+  border:1px solid white;
+  color:white;
+}
+body.dark .card{background-color:black; border:1px solid white;}
+
+.puzzle{
+  display:flex;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+
+}
+.folders{
+
+}
+.folders div{
+
+}
+.items{
+  border-radius:15px;
+  border:1px solid black;
+  text-align:left;
+  left:500px;
+  padding:10px 10px;
+  margin-top:10px;
+}
+.items:hover{
+  cursor:pointer;
+}
+body.dark .items{
+  border-radius:15px;
+  border:1px solid white;
+}
+.del{
+  color:black;
+  margin-top:20px;
+}
+body.dark .del{
+  color:white;
+}
+.folders{
+  height:auto;
+  text-align:left;
+  left:500px;
+  padding:10px 10px;
+  margin-left:20px;
+  margin-top:100px;
+}
+.folders:hover{
+  cursor:pointer;
+}
+.headfold{
+  top:500px;
+  text-align:left;
+  font-family:Quicksand;
+  font-weight=bold;
+  font-size:3em;
+}
+.headfold:hover{
+  cursor:pointer;
+}
+.tabhead:hover{
+  cursor:pointer;
+}
+.tabhead{
+  font-size:1em;
+  font-family: Quicksand;
+
+}
+body.dark .plus, body.dark .contenitore div p, body.dark .button{
+  background-color:black;
+  color:white;
+  border:1px solid white;
+}
+body.dark .plus:hover, body.dark .contenitore div p:hover, body.dark .button:hover{
+  background-color:white;
+  color:black;
+  border:1px solid black;
+}
+body.dark .sign{
+  background-color:black;
+  color:white;
+  border:0px;
+}
+.flexpict{
+  flex:50%;
+  margin-top:40px;
+}
+.pictures{
+  background-color:white;
+  position:absolute;
+  width:150px;
+  height:150px;
+  border:1px solid black;
+  border-radius:15px;
+  background-size: cover;
+  background-repeat:no-repeat;
+}
+
+.indice{
+  right:0px;
+  position:fixed;
+  z-index:20;
+}
+.index tr{
+  background-color:white;
+  padding:5px 5px;
+  padding-left:20px;
+  padding-right:50px;
+  text-align:left;
+}
+.searchindex{
+  right:0px;
+  position:fixed;
+  z-index:30;
+  top:70px;
+}
+.searchind{
+  width:250px;
+  table-layout:fixed;
+}
+
+.searchind td{
+  background-color:white;
+  padding:5px 5px;
+  padding-left:20px;
+  padding-right:20px;
+  text-align:left;
+  width:250px;
+}
+
+.index td{
+  background-color:white;
+  padding:5px 5px;
+  padding-left:50px;
+  padding-right:20px;
+  text-align:right;
+  opacity:0.7;
+}
+.index td:hover{
+  cursor:pointer;
+  opacity:1;
+}
+.expandchiletable:before{
+  display:block;
+  cursor:pointer;
+}
+.childtablerow{
+  visibility:hidden;
+}
+.thoughthead{
+  font-family: Quicksand;
+  font-size:0.8em;
+  margin-right:950px;
+}
+.flexpict:hover{
+  cursor:pointer;
+}
+.entity{
+  color:grey;
+  text-decoration:none;
+}
+.entity:hover{
+  color:white;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-auto-rows: minmax(200px, auto);
+  gap:1px;
+  margin-top:30px;
+}
+.one{
+  background-size:cover;
+  opacity:0.7;
+  background-position:center;
+}
+.bucket{
+  font-size:4vw;
+  color:grey;
+  font-family: Victor Mono;
+}
+.wrapper div:hover{
+  cursor:pointer;
+  border:1px solid white;
+  opacity:1;
+}
+.wrapper div{
+  border:1px solid black;
+}
+.wrapper p:hover{
+  cursor:pointer;
+  opacity:1;
+  color:grey;
+}
+
+.dairies {
+  display: grid;
+  grid-template-columns: auto ;
+  grid-auto-rows: minmax(400px, auto);
+  gap:1px;
+  margin-top:30px;
+}
+
+.diary{
+  border-radius:15px;
+  border:1px solid black;
+  text-align:left;
+  width:800px;
+  left:500px;
+  background-color:white;
+  font-family:Quicksand;
+}
+.warnings{
+  visibility:hidden;
+}
+.hello{
+
+}
