@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block navbar %}
+<a style= "border:0px solid white;" href="/settings" > <i class="fa fa-gear"></i></a>
+{% endblock %}
+
+{% block main %}
+<!--add diary post-->
+<div class="edit" id = "diary" style="margin-top:20px;left:200px; width: 850px;">
+  <p class="x" onclick="toggle_visibility('diary');">X</p>
+  <h3 class="edithead"> add dairy post </h3>
+  <form action="/adddiary" method="post">
+                <select name="folder" class="sign">
+                  <option value="folder">folder</option>
+                  {% for folder in folders %}
+                  <option value="{{folder.name}}">{{folder.name}}</option>
+                  {% endfor %}
+
+              </select>
+              <select name="privacy" class="sign">
+                  <option value="public">public</option>
+                  <option value="private">private</option>
+              </select>
+              <input autocomplete="off" autofocus class="inputs" id="title" name="title" placeholder="title" type="text">
+              <input autocomplete="off" autofocus class="inputs" id="url" name="url" placeholder="url" type="text">
+              <textarea id="thought" style="margin-top:10px;width:700px;"autofocus class="diary" name="diary" rows="20" cols="20"></textarea>
+
+      <button class="button" type="submit">Save</button>
+  </form>
+</div>
+
+
+<div class="circle" >
+  <p class="plus" onclick="toggle_visibility('diary');">
+      &#43;
+  </p>
+</div>
+<div class="dairies">
+    {% for diary in diaries %}
+   <div class="one" onclick="toggle_visibility('editdiary');" style="background-image: url({{diary.url}});background-size: cover;background-repeat:no-repeat;">
+      <a class="del" href="/deldiary/{{diary.iddiary}}"><i class="fa fa-trash-o" ></i></a></p>
+      <a href="/editdiary/{{diary.iddiary}}" style="color:black;text-decoration:none;"><p  style="font-size:1em; background-color:white;opacity:0.7;">{{diary.title}}, <span style="opacity:0.6;">{{diary.timeth}}</span></p></a>
+        <p  style="font-size:1em; background-color:white;opacity:0.7;"><span style="font-size:0.8em;">{{diary.diary}}</span></p>
+
+        <hr>
+    </div>
+    {% endfor %}
+  </div>
+{%endblock%}
